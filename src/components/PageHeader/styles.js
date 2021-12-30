@@ -22,6 +22,7 @@ export const CartItemContainer = styled.div`
     height: 100%;
     margin: 0 2rem;
 
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -53,8 +54,8 @@ export const CartContainer = styled.div`
     left: 0;
     transform: translateX(-85%);
     border-radius: 0.8rem;
-    background: #fff; 
-    box-shadow: 0px 11px 16px 4px rgba(108,108,108,0.39);
+    background: #fff;
+    box-shadow: 0px 11px 16px 4px rgba(108, 108, 108, 0.39);
 
     cursor: initial;
 
@@ -96,7 +97,7 @@ export const CartContainer = styled.div`
         background: hsl(26, 100%, 55%);
         color: #fff;
         border: 0;
-        border-radius: .8rem;
+        border-radius: 0.8rem;
       }
     }
   }
@@ -106,33 +107,51 @@ export const NavigationBar = styled.nav`
   display: flex;
   align-items: center;
 
+  .menu-icon {
+    display: none;
+    background: none;
+    border: 0;
+    transform: translateY(15%);
+    margin-right: 2rem;
+
+    cursor: pointer;
+
+    @media (max-width: 750px) {
+      display: initial;
+    }
+  }
+
   .logo {
     margin-right: 5rem;
   }
 
-  ul {
+  .desktop-menu {
     height: 100%;
     display: flex;
-  }
 
-  li {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    margin-right: 3rem;
-    padding: 3rem 0.3rem;
-    border-bottom: 5px solid #fff;
-    transition: border-bottom 0.2s ease-out;
-    cursor: pointer;
+    li {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      margin-right: 3rem;
+      padding: 0 .3rem;
+      border-bottom: 5px solid #fff;
+      transition: border-bottom 0.2s ease-out;
+      cursor: pointer;
 
-    &:hover {
-      border-bottom: 5px solid hsl(26, 100%, 55%);
+      &:hover {
+        border-bottom: 5px solid hsl(26, 100%, 55%);
+      }
     }
-  }
 
-  a {
-    font-size: 1.5rem;
-    color: hsl(219, 9%, 45%);
+    a {
+      font-size: 1.5rem;
+      color: hsl(219, 9%, 45%);
+    }
+
+    @media (max-width: 750px) {
+      display: none;
+    }
   }
 `;
 
@@ -164,6 +183,7 @@ export const UserSection = styled.div`
 
 export default styled.header`
   max-width: 1400px;
+  height: 7.4rem;
   margin: 0 auto;
   padding: 0 5rem;
 

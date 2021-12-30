@@ -1,20 +1,22 @@
 import { useContext } from 'react';
 
 import Container, { NavigationBar, UserSection, CartContainer } from './styles';
+
 import Logo from '../../assets/images/logo.svg';
 import ProfileIcon from '../../assets/images/image-avatar.png';
 import CartIcon from '../../assets/images/icon-cart.svg';
+import MenuIcon from '../../assets/images/icon-menu.svg';
+
 import CartItem from './CartItem';
 import { CartContext } from '../../contexts/CartContext';
 
 function PageHeader() {
   const { isCartEmpty } = useContext(CartContext);
 
-  console.log(isCartEmpty);
-
   return (
     <Container>
       <NavigationBar>
+        <button className="menu-icon" type="button"><img src={MenuIcon} alt="Menu Icon" /></button>
         <div className="logo">
           <img src={Logo} alt="Sneakers Logo" />
         </div>
