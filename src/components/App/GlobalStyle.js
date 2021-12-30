@@ -12,7 +12,7 @@ export default createGlobalStyle`
   }
 
   ul {
-    style-type: none;
+    list-style: none;
   }
 
   a {
