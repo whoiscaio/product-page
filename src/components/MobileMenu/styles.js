@@ -10,6 +10,16 @@ const slideIn = keyframes`
   }
 `;
 
+const slideOut = keyframes`
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+`;
+
 export const Overlay = styled.div`
   z-index: 1000;
   position: absolute;
@@ -17,7 +27,7 @@ export const Overlay = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, .7);
+  background: rgba(0, 0, 0, 0.7);
 `;
 
 export default styled.div`
@@ -25,14 +35,14 @@ export default styled.div`
   background: #fff;
   padding: 3rem;
 
-  animation: ${slideIn} .38s ease-out;
+  animation: ${slideIn} 0.38s ease-out;
 
   float: left;
 
   button {
     background: none;
     border: 0;
-    
+
     margin-bottom: 3.6rem;
   }
 
@@ -43,5 +53,9 @@ export default styled.div`
     padding: 0 10rem 1.8rem 0;
 
     cursor: pointer;
+  }
+
+  &.going-out {
+    animation: ${slideOut} 0.38s ease-out;
   }
 `;

@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 
 import Container, { NavigationBar, UserSection, CartContainer } from './styles';
 
@@ -13,11 +13,18 @@ import MobileMenu from '../MobileMenu';
 
 function PageHeader() {
   const { isCartEmpty } = useContext(CartContext);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  function toggleMobileMenu() {
+    setIsMobileMenuOpen((prevState) => !prevState);
+  }
 
   return (
     <Container>
       <NavigationBar>
-        <button className="menu-icon" type="button"><img src={MenuIcon} alt="Menu Icon" /></button>
+        <button className="menu-icon" type="button" onClick={toggleMobileMenu}>
+          <img src={MenuIcon} alt="Menu Icon" />
+        </button>
         <div className="logo">
           <img src={Logo} alt="Sneakers Logo" />
         </div>
@@ -67,7 +74,7 @@ function PageHeader() {
         </div>
       </UserSection>
 
-      <MobileMenu isOpen />
+      <MobileMenu isOpen={isMobileMenuOpen} toggleMenu={toggleMobileMenu} />
     </Container>
   );
 }
