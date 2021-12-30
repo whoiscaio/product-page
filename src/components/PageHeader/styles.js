@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+export const CartContainer = styled.div`
+  margin-right: 4rem;
+`;
+
 export const NavigationBar = styled.nav`
   display: flex;
   align-items: center;
@@ -21,6 +25,7 @@ export const NavigationBar = styled.nav`
     padding: 3rem .3rem;
     border-bottom: 5px solid #fff;
     transition: border-bottom .2s ease-out;
+    cursor: pointer;
 
 
     &:hover {
@@ -34,7 +39,31 @@ export const NavigationBar = styled.nav`
   }
 `;
 
-export const UserSection = styled.div``;
+export const UserSection = styled.div`
+  display: flex;
+  align-items: center;
+
+  > div {
+    cursor: pointer;
+  }
+
+  .profile {
+    width: 5.6rem;
+    height: 5.6rem;
+    border: 2px solid #fff;
+    border-radius: 50%;
+
+    transition: border .2s ease-out;
+
+    img {
+      width: 100%;
+    }
+
+    &:hover {
+      border: 2px solid hsl(26, 100%, 55%);
+    }
+  }
+`;
 
 export default styled.header`
   max-width: 1440px;

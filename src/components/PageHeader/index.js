@@ -1,5 +1,7 @@
-import Container, { NavigationBar, UserSection } from './styles';
+import Container, { NavigationBar, UserSection, CartContainer } from './styles';
 import Logo from '../../assets/images/logo.svg';
+import ProfileIcon from '../../assets/images/image-avatar.png';
+import CartIcon from '../../assets/images/icon-cart.svg';
 
 function PageHeader() {
   return (
@@ -27,7 +29,15 @@ function PageHeader() {
         </ul>
       </NavigationBar>
 
-      <UserSection>User Section</UserSection>
+      <UserSection>
+        <CartContainer>
+          <img src={CartIcon} alt="Cart Icon" />
+        </CartContainer>
+
+        <div className="profile">
+          <img src={ProfileIcon} alt="Profile Icon" />
+        </div>
+      </UserSection>
     </Container>
   );
 }
