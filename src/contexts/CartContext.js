@@ -4,7 +4,7 @@ import { createContext, useMemo, useState } from 'react';
 export const CartContext = createContext();
 
 function CartProvider({ children }) {
-  const [isCartEmpty, setIsCartEmpty] = useState(true);
+  const [isCartEmpty, setIsCartEmpty] = useState(false);
 
   const values = useMemo(() => ({ isCartEmpty, setIsCartEmpty }), []);
 

@@ -29,7 +29,6 @@ export const CartItemContainer = styled.div`
     span {
       font-size: 1.3rem;
       white-space: nowrap;
-      color: hsl(219, 9%, 45%);
 
       &:first-of-type {
         margin-bottom: 0.6rem;
@@ -47,6 +46,8 @@ export const CartContainer = styled.div`
   margin-right: 4rem;
 
   .cart {
+    width: 320px;
+
     position: absolute;
     top: 5rem;
     left: 0;
@@ -66,6 +67,16 @@ export const CartContainer = styled.div`
 
     .content {
       padding: 2rem;
+      color: hsl(219, 9%, 45%);
+
+      #empty {
+        width: 100%;
+        padding: 4rem 0;
+        display: flex;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.4rem;
+      }
     }
 
     .checkout-button {

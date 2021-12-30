@@ -1,10 +1,17 @@
+import { useContext } from 'react';
+
 import Container, { NavigationBar, UserSection, CartContainer } from './styles';
 import Logo from '../../assets/images/logo.svg';
 import ProfileIcon from '../../assets/images/image-avatar.png';
 import CartIcon from '../../assets/images/icon-cart.svg';
 import CartItem from './CartItem';
+import { CartContext } from '../../contexts/CartContext';
 
 function PageHeader() {
+  const { isCartEmpty } = useContext(CartContext);
+
+  console.log(isCartEmpty);
+
   return (
     <Container>
       <NavigationBar>
@@ -38,10 +45,16 @@ function PageHeader() {
               <h1>Cart</h1>
             </header>
             <div className="content">
-              <CartItem empty={false} />
-              <div className="checkout-button">
-                <button type="button">Checkout</button>
-              </div>
+              {isCartEmpty ? (
+                <span id="empty">Your cart is empty</span>
+              ) : (
+                <>
+                  <CartItem />
+                  <div className="checkout-button">
+                    <button type="button">Checkout</button>
+                  </div>
+                </>
+              )}
             </div>
           </div>
         </CartContainer>
