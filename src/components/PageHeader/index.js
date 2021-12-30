@@ -9,6 +9,7 @@ import MenuIcon from '../../assets/images/icon-menu.svg';
 
 import CartItem from './CartItem';
 import { CartContext } from '../../contexts/CartContext';
+import MobileMenu from '../MobileMenu';
 
 function PageHeader() {
   const { isCartEmpty } = useContext(CartContext);
@@ -65,6 +66,8 @@ function PageHeader() {
           <img src={ProfileIcon} alt="Profile Icon" />
         </div>
       </UserSection>
+
+      <MobileMenu isOpen />
     </Container>
   );
 }
