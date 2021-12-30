@@ -5,7 +5,7 @@ export const CartContext = createContext();
 
 function CartProvider({ children }) {
   const CartRef = useRef();
-  const [isCartOpen, setIsCartOpen] = useState(true);
+  const [isCartOpen, setIsCartOpen] = useState(false);
   const [isCartEmpty, setIsCartEmpty] = useState(false);
 
   function toggleIsCartOpen() {

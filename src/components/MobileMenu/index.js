@@ -9,23 +9,23 @@ import Container, { Overlay } from './styles';
 function MobileMenu({ isOpen, toggleMenu }) {
   if (!isOpen) return null;
   
-  const ContainerRef = useRef();
+  const OverlayRef = useRef();
 
   function handleToggle() {
-    const { current: containerElement } = ContainerRef;
+    const { current: overlayElement } = OverlayRef;
 
     if(isOpen) {
-      containerElement.classList.add('going-out');
+      overlayElement.classList.add('going-out');
       setTimeout(() => {
         toggleMenu();
-        containerElement.classList.remove('going-out');
+        overlayElement.classList.remove('going-out');
       }, 370);
     }
   }
 
   return ReactDOM.createPortal(
-    <Overlay>
-      <Container ref={ContainerRef}>
+    <Overlay ref={OverlayRef}>
+      <Container>
         <button onClick={handleToggle} type="button">
           <img src={CloseIcon} alt="Close Icon" />
         </button>
