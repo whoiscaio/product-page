@@ -56,6 +56,12 @@ export const CartContainer = styled.div`
     background: #fff; 
     box-shadow: 0px 11px 16px 4px rgba(108,108,108,0.39);
 
+    cursor: initial;
+
+    button {
+      cursor: pointer;
+    }
+
     header {
       padding: 1.6rem 1.4rem;
       border-bottom: 2px solid hsl(223, 64%, 98%);
