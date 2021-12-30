@@ -38,7 +38,7 @@ function PageHeader() {
               <h1>Cart</h1>
             </header>
             <div className="content">
-              <CartItem />
+              <CartItem empty={false} />
               <div className="checkout-button">
                 <button type="button">Checkout</button>
               </div>
