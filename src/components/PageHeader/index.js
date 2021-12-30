@@ -2,6 +2,7 @@ import Container, { NavigationBar, UserSection, CartContainer } from './styles';
 import Logo from '../../assets/images/logo.svg';
 import ProfileIcon from '../../assets/images/image-avatar.png';
 import CartIcon from '../../assets/images/icon-cart.svg';
+import CartItem from './CartItem';
 
 function PageHeader() {
   return (
@@ -32,6 +33,17 @@ function PageHeader() {
       <UserSection>
         <CartContainer>
           <img src={CartIcon} alt="Cart Icon" />
+          <div className="cart">
+            <header>
+              <h1>Cart</h1>
+            </header>
+            <div className="content">
+              <CartItem />
+              <div className="checkout-button">
+                <button type="button">Checkout</button>
+              </div>
+            </div>
+          </div>
         </CartContainer>
 
         <div className="profile">
