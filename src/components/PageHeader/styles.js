@@ -45,61 +45,11 @@ export const CartItemContainer = styled.div`
 export const CartContainer = styled.div`
   position: relative;
   margin-right: 4rem;
-
-  .cart {
-    width: 320px;
-
-    position: absolute;
-    top: 5rem;
-    left: 0;
-    transform: translateX(-85%);
-    border-radius: 0.8rem;
-    background: #fff;
-    box-shadow: 0px 11px 16px 4px rgba(108, 108, 108, 0.39);
-
-    cursor: initial;
-
-    button {
-      cursor: pointer;
-    }
-
-    header {
-      padding: 1.6rem 1.4rem;
-      border-bottom: 2px solid hsl(223, 64%, 98%);
-    }
-
-    h1 {
-      font-size: 1.8rem;
-    }
-
-    .content {
-      padding: 2rem;
-      color: hsl(219, 9%, 45%);
-
-      #empty {
-        width: 100%;
-        padding: 4rem 0;
-        display: flex;
-        justify-content: center;
-        font-weight: 700;
-        font-size: 1.4rem;
-      }
-    }
-
-    .checkout-button {
-      margin-top: 2rem;
-
-      button {
-        font-weight: 700;
-        width: 100%;
-        padding: 1.6rem 0;
-
-        background: hsl(26, 100%, 55%);
-        color: #fff;
-        border: 0;
-        border-radius: 0.8rem;
-      }
-    }
+  
+  button {
+    background: none;
+    border: 0;
+    cursor: pointer;
   }
 `;
 

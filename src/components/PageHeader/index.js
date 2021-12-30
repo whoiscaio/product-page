@@ -7,13 +7,13 @@ import ProfileIcon from '../../assets/images/image-avatar.png';
 import CartIcon from '../../assets/images/icon-cart.svg';
 import MenuIcon from '../../assets/images/icon-menu.svg';
 
-import CartItem from './CartItem';
-import { CartContext } from '../../contexts/CartContext';
 import MobileMenu from '../MobileMenu';
+import Cart from '../Cart';
+import { CartContext } from '../../contexts/CartContext';
 
 function PageHeader() {
-  const { isCartEmpty } = useContext(CartContext);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { toggleIsCartOpen } = useContext(CartContext);
 
   function toggleMobileMenu() {
     setIsMobileMenuOpen((prevState) => !prevState);
@@ -49,24 +49,10 @@ function PageHeader() {
 
       <UserSection>
         <CartContainer>
-          <img src={CartIcon} alt="Cart Icon" />
-          <div className="cart">
-            <header>
-              <h1>Cart</h1>
-            </header>
-            <div className="content">
-              {isCartEmpty ? (
-                <span id="empty">Your cart is empty</span>
-              ) : (
-                <>
-                  <CartItem />
-                  <div className="checkout-button">
-                    <button type="button">Checkout</button>
-                  </div>
-                </>
-              )}
-            </div>
-          </div>
+          <button type="button" onClick={toggleIsCartOpen}>
+            <img src={CartIcon} alt="Cart Icon" />
+          </button>
+          <Cart />
         </CartContainer>
 
         <div className="profile">

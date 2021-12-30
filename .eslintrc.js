@@ -3,7 +3,7 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ['plugin:react/recommended', 'airbnb', 'prettier',],
+  extends: ['plugin:react/recommended', 'airbnb', 'prettier'],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -17,5 +17,7 @@ module.exports = {
     'react/react-in-jsx-scope': 0,
     'jsx-a11y/anchor-is-valid': 0,
     'react/jsx-no-bind': 0,
+    'react/jsx-no-constructed-context-values': 0,
+    'consistent-return': 0,
   },
 };

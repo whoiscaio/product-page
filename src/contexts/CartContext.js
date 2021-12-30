@@ -1,15 +1,37 @@
 import propTypes from 'prop-types';
-import { createContext, useMemo, useState } from 'react';
+import { createContext, useRef, useState } from 'react';
 
 export const CartContext = createContext();
 
 function CartProvider({ children }) {
+  const CartRef = useRef();
+  const [isCartOpen, setIsCartOpen] = useState(true);
   const [isCartEmpty, setIsCartEmpty] = useState(false);
 
-  const values = useMemo(() => ({ isCartEmpty, setIsCartEmpty }), []);
+  function toggleIsCartOpen() {
+    const { current: CartElement } = CartRef;
+
+    if(isCartOpen) {
+      CartElement.classList.add('going-out');
+      setTimeout(() => {
+        CartElement.classList.remove('going-out');
+        setIsCartOpen(false);
+      }, 370);
+    }
+
+    setIsCartOpen(true);
+  }
 
   return (
-    <CartContext.Provider value={values}>
+    <CartContext.Provider
+      value={{
+        isCartEmpty,
+        setIsCartEmpty,
+        isCartOpen,
+        toggleIsCartOpen,
+        CartRef,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );
@@ -17,6 +39,6 @@ function CartProvider({ children }) {
 
 CartProvider.propTypes = {
   children: propTypes.node.isRequired,
-}
+};
 
 export default CartProvider;
