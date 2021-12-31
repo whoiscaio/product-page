@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const ProductInfoContainer = styled.div`
+  padding-right: 14rem;
+
   header {
     margin-bottom: 4rem;
 
