@@ -1,5 +1,6 @@
 import CartProvider from '../../contexts/CartContext';
 import PageHeader from '../PageHeader';
+import ProductSection from '../ProductSection';
 import GlobalStyle from './GlobalStyle';
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
       <GlobalStyle />
       <CartProvider>
         <PageHeader />
+        <ProductSection />
       </CartProvider>
     </div>
   );
