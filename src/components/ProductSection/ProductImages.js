@@ -14,21 +14,25 @@ function ProductImages() {
         <img src={mainImage} alt="Selected" />
       </div>
       <div className="thumbnails">
-        <div className="select">
+        <div className="selected">
           <img src={thumbnail1} alt="Thumbnail 1" />
+          <div className="overlay" />
         </div>
         <div>
           <img src={thumbnail2} alt="Thumbnail 2" />
+          <div className="overlay" />
         </div>
         <div>
           <img src={thumbnail3} alt="Thumbnail 3" />
+          <div className="overlay" />
         </div>
         <div>
           <img src={thumbnail4} alt="Thumbnail 4" />
+          <div className="overlay" />
         </div>
       </div>
     </ProductImagesContainer>
-  )
+  );
 }
 
 export default ProductImages;

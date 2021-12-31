@@ -149,6 +149,33 @@ export const ProductImagesContainer = styled.div`
 
     div {
       width: 20%;
+
+      cursor: pointer;
+
+      &:hover {
+        opacity: .7;
+      }
+    }
+
+    .selected {
+      position: relative;
+
+      img {
+        opacity: .4;
+      }
+
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+        border: 2px solid hsl(26,100%,55%);
+        border-radius: 1.6rem;
+
+        z-index: 1000;
+      }
     }
   }
 `;
