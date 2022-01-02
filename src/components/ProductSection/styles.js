@@ -244,7 +244,7 @@ export const ProductImagesContainer = styled.div`
     .slider {
       display: flex;
       width: 400%;
-      overflow: hidden;
+      transition: transform .3s ease-out;
 
       .image {
         width: 100%;
@@ -255,6 +255,22 @@ export const ProductImagesContainer = styled.div`
         margin-top: -20%;
         object-fit: contain;
         border-radius: 0;
+      }
+
+      &.p1 {
+        transform: translateX(0);
+      }
+
+      &.p2 {
+        transform: translateX(-25%);
+      }
+
+      &.p3 {
+        transform: translateX(-50%);
+      }
+
+      &.p4 {
+        transform: translateX(-75%);
       }
 
       @media (min-width: 520px) {

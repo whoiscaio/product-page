@@ -38,7 +38,7 @@ function ProductImages() {
         </div>
       </div>
       <div className="mobile-slider">
-        <div className="slider">
+        <div className="slider p3">
           <div className="image">
             <img src={product1} alt="Product 1" />
           </div>
