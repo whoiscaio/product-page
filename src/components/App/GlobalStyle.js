@@ -26,6 +26,22 @@ export default createGlobalStyle`
     @media (max-width: 900px) {
       font-size: 52.5%;
     }
+
+    @media (max-width: 800px) {
+      font-size: 50%;
+    }
+
+    @media (max-width: 750px) {
+      font-size: 47.5%;
+    }
+
+    @media (max-width: 700px) {
+      font-size: 45%;
+    }
+
+    @media (max-width: 600px) {
+      font-size: 42.5%;
+    }
   }
 
   ul {

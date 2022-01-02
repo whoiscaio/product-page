@@ -7,10 +7,10 @@ export const ProductInfoContainer = styled.div`
     margin-bottom: 4rem;
 
     .company {
-      color: hsl(26,100%,55%);
+      color: hsl(26, 100%, 55%);
       font-weight: 700;
       font-size: 1.4rem;
-      letter-spacing: .2rem;
+      letter-spacing: 0.2rem;
     }
 
     h1 {
@@ -20,7 +20,7 @@ export const ProductInfoContainer = styled.div`
   }
 
   .description {
-    color: hsl(219,9%,45%);
+    color: hsl(219, 9%, 45%);
     font-size: 1.5rem;
     line-height: 2.6rem;
   }
@@ -43,14 +43,14 @@ export const ProductInfoContainer = styled.div`
 
     .discount {
       position: absolute;
-      top: .4rem;
+      top: 0.4rem;
       left: 11rem;
 
-      padding: .4rem;
+      padding: 0.4rem;
 
-      border-radius: .4rem;
+      border-radius: 0.4rem;
       background: hsl(25, 100%, 94%);
-      color: hsl(26,100%,55%);
+      color: hsl(26, 100%, 55%);
 
       font-size: 1.6rem;
       font-weight: 700;
@@ -63,23 +63,23 @@ export const ProductInfoContainer = styled.div`
     .set-quantity {
       display: flex;
       align-items: center;
-      
+
       background: hsl(223, 64%, 98%);
       border-radius: 1rem;
 
       button {
-        color: hsl(26,100%,55%);
+        color: hsl(26, 100%, 55%);
         font-weight: 700;
         font-size: 2.8rem;
-        padding: .8rem 1.6rem;
+        padding: 0.8rem 1.6rem;
 
         background: none;
         border: 0;
 
         cursor: pointer;
         transform: translateY(-8%);
-        transition: transform .3s ease-out;
-        
+        transition: transform 0.3s ease-out;
+
         &:hover {
           transform: translateY(-8%) scale(1.2);
         }
@@ -88,14 +88,14 @@ export const ProductInfoContainer = styled.div`
       span {
         font-size: 1.6rem;
         font-weight: 700;
-        padding: .8rem 1.6rem;
+        padding: 0.8rem 1.6rem;
       }
     }
 
     .add-to-cart {
       flex: 1;
       padding-left: 3rem;
-      
+
       button {
         display: flex;
         justify-content: center;
@@ -104,7 +104,7 @@ export const ProductInfoContainer = styled.div`
         width: 100%;
         height: 100%;
 
-        background: hsl(26,100%,55%);
+        background: hsl(26, 100%, 55%);
         border: 0;
         border-radius: 1rem;
         color: #fff;
@@ -112,13 +112,13 @@ export const ProductInfoContainer = styled.div`
         font-size: 1.6rem;
         font-weight: 700;
 
-        padding: .4rem 0;
+        padding: 0.4rem 0;
 
         cursor: pointer;
-        transition: opacity .3s ease-out;
+        transition: opacity 0.3s ease-out;
 
         &:hover {
-          opacity: .6;
+          opacity: 0.6;
         }
 
         img {
@@ -127,12 +127,49 @@ export const ProductInfoContainer = styled.div`
         }
       }
     }
+
+    @media (max-width: 780px) {
+      flex-direction: column;
+
+      .set-quantity {
+        button {
+          height: 6rem;
+          flex: 1;
+
+          &:first-child {
+            text-align: left;
+          }
+
+          &:last-child {
+            text-align: right;
+          }
+
+          &:hover {
+            transform: translateY(-8%);
+          }
+        }
+      }
+
+      .add-to-cart {
+        padding-left: 0;
+
+        button {
+          padding: 1.6rem 0;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 680px) {
+    header {
+      margin-bottom: 2rem;
+    }
   }
 `;
 
 export const ProductImagesContainer = styled.div`
   max-width: 580px;
-  padding: 4rem 8rem;
+  padding: 0 8rem;
 
   img {
     width: 100%;
@@ -141,6 +178,10 @@ export const ProductImagesContainer = styled.div`
 
   .main-image {
     margin-bottom: 2rem;
+
+    @media (max-width: 520px) {
+      display: none;
+    }
   }
 
   .thumbnails {
@@ -153,7 +194,7 @@ export const ProductImagesContainer = styled.div`
       cursor: pointer;
 
       &:hover {
-        opacity: .7;
+        opacity: 0.7;
       }
     }
 
@@ -161,7 +202,7 @@ export const ProductImagesContainer = styled.div`
       position: relative;
 
       img {
-        opacity: .4;
+        opacity: 0.4;
       }
 
       .overlay {
@@ -171,19 +212,128 @@ export const ProductImagesContainer = styled.div`
 
         width: 100%;
         height: 100%;
-        border: 2px solid hsl(26,100%,55%);
+        border: 2px solid hsl(26, 100%, 55%);
         border-radius: 1.6rem;
 
         z-index: 1000;
       }
     }
+
+    @media (max-width: 520px) {
+      display: none;
+    }
+  }
+
+  .mobile-slider {
+    position: relative;
+
+    width: 100%;
+    overflow: hidden;
+
+    .slider {
+      display: flex;
+      width: 400%;
+      overflow: hidden;
+
+      .image {
+        width: 100%;
+        max-height: 50rem;
+      }
+
+      img {
+        margin-top: -20%;
+        object-fit: contain;
+        border-radius: 0;
+      }
+
+      @media (min-width: 520px) {
+        display: none;
+      }
+    }
+
+    .actions {
+      display: flex;
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      z-index: 1000;
+
+      button {
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+        background: none;
+        border: 0;
+
+        cursor: pointer;
+
+        &:hover {
+          .wrapper {
+            transform: scale(1.1);
+          }
+
+          img {
+            transform: scale(1.1);
+          }
+        }
+      }
+
+      .previousImage {
+        width: 20vw;
+        justify-content: center;
+      }
+
+      .nextImage {
+        width: 80vw;
+        padding-right: 3.4rem;
+        justify-content: flex-end;
+      }
+
+      .wrapper {
+        width: 8rem;
+        height: 8rem;
+        background: #fff;
+        border-radius: 50%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        transition: transform .2s ease-out;
+
+        img {
+          width: 4rem;
+          height: 5rem;
+
+          transition: transform .2s ease-out;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 520px) {
+    max-width: initial;
+    padding: 0;
   }
 `;
 
 export default styled.div`
   max-width: 1200px;
   margin: 0 auto 0;
+  padding: 4rem 0;
 
   display: flex;
   align-items: center;
+
+  @media (max-width: 520px) {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+  }
 `;

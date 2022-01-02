@@ -1,6 +1,12 @@
 import { ProductImagesContainer } from './styles';
 
-import mainImage from '../../assets/images/image-product-1.jpg';
+import previousImageButton from '../../assets/images/icon-previous.svg';
+import nextImageButton from '../../assets/images/icon-next.svg';
+
+import product1 from '../../assets/images/image-product-1.jpg';
+import product2 from '../../assets/images/image-product-2.jpg';
+import product3 from '../../assets/images/image-product-3.jpg';
+import product4 from '../../assets/images/image-product-4.jpg';
 
 import thumbnail1 from '../../assets/images/image-product-1-thumbnail.jpg';
 import thumbnail2 from '../../assets/images/image-product-2-thumbnail.jpg';
@@ -11,7 +17,7 @@ function ProductImages() {
   return (
     <ProductImagesContainer>
       <div className="main-image">
-        <img src={mainImage} alt="Selected" />
+        <img src={product1} alt="Selected" />
       </div>
       <div className="thumbnails">
         <div className="selected">
@@ -29,6 +35,34 @@ function ProductImages() {
         <div>
           <img src={thumbnail4} alt="Thumbnail 4" />
           <div className="overlay" />
+        </div>
+      </div>
+      <div className="mobile-slider">
+        <div className="slider">
+          <div className="image">
+            <img src={product1} alt="Product 1" />
+          </div>
+          <div className="image">
+            <img src={product2} alt="Product 2" />
+          </div>
+          <div className="image">
+            <img src={product3} alt="Product 3" />
+          </div>
+          <div className="image">
+            <img src={product4} alt="Product 4" />
+          </div>
+        </div>
+        <div className="actions">
+          <button type="button" className="previousImage">
+            <div className="wrapper">
+              <img src={previousImageButton} alt="Previous" />
+            </div>
+          </button>
+          <button type="button" className="nextImage">
+            <div className="wrapper">
+              <img src={nextImageButton} alt="Next" />
+            </div>
+          </button>
         </div>
       </div>
     </ProductImagesContainer>
