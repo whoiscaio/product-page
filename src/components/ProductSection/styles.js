@@ -161,7 +161,13 @@ export const ProductInfoContainer = styled.div`
   }
 
   @media (max-width: 520px) {
-    padding: 4rem;
+    padding: 3rem;
+
+    header {
+      h1 {
+        margin-top: 1rem;
+      }
+    }
 
     .price {
       .old-price {
