@@ -16,14 +16,14 @@ import thumbnail3 from '../../assets/images/image-product-3-thumbnail.jpg';
 import thumbnail4 from '../../assets/images/image-product-4-thumbnail.jpg';
 
 function ProductImages() {
-  const [currentImage, setCurrentImage] = useState(2);
+  const [currentImage, setCurrentImage] = useState(1);
 
   function goToNextImage() {
-    setCurrentImage((prevState) => prevState + 1);
+    setCurrentImage((prevState) => prevState !== 4 ? prevState + 1 : 1);
   }
 
   function goToPreviousImage() {
-    setCurrentImage((prevState) => prevState - 1);
+    setCurrentImage((prevState) => prevState !== 1 ? prevState - 1 : 4);
   }
 
   return (
@@ -69,7 +69,6 @@ function ProductImages() {
             type="button"
             onClick={goToPreviousImage}
             className="previousImage"
-            disabled={currentImage === 1}
           >
             <div className="wrapper">
               <img src={previousImageButton} alt="Previous" />
@@ -79,7 +78,6 @@ function ProductImages() {
             type="button"
             onClick={goToNextImage}
             className="nextImage"
-            disabled={currentImage === 4}
           >
             <div className="wrapper">
               <img src={nextImageButton} alt="Next" />
