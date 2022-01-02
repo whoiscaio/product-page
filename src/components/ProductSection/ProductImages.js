@@ -29,49 +29,24 @@ function ProductImages() {
 
   const references = [imageButton1, imageButton2, imageButton3, imageButton4];
 
-  function clearClasses(refs) {
-    refs.forEach((ref) => ref.current.classList.remove('selected'));
-  }
-
   function toggleLightboxGallery() {
     setIsLightboxGalleryOpen((prevState) => !prevState);
   }
 
-  function goToNextImage(e, ...refs) {
-    
-    setCurrentImage((prevState) => {
-      if(refs) console.log('oi', refs);
-      if(refs) refs.forEach((refGroup) => clearClasses(refGroup));
-
-      if (prevState !== 4) {
-        if(refs) refs.forEach((refGroup) => refGroup[prevState].current.classList.add('selected'))
-        return prevState + 1;
-      }
-
-      return 1;
-    });
+  function goToNextImage() {
+    setCurrentImage((prevState) => (prevState !== 4 ? prevState + 1 : 1));
   }
 
-  function goToPreviousImage(e, ...refs) {
-    setCurrentImage((prevState) => {
-      if(refs) refs.forEach((refGroup) => clearClasses(refGroup));
-
-      if(prevState !== 1) {
-        if(refs) refs.forEach((refGroup) => refGroup[prevState - 2].current.classList.add('selected'))
-        return prevState - 1;
-      }
-
-      return 4;
-    });
+  function goToPreviousImage() {
+    setCurrentImage((prevState) => (prevState !== 1 ? prevState - 1 : 4));
   }
 
-  function changeImage(imgId, e, refs) {
+  function changeImage(imgId, e) {
     if (currentImage === imgId) return;
 
     const { target } = e;
     const button = target.parentNode;
 
-    clearClasses(refs);
     button.classList.add('selected');
     setCurrentImage(imgId);
   }
@@ -90,7 +65,7 @@ function ProductImages() {
           ref={imageButton1}
           type="button"
           onClick={(e) => changeImage(1, e, references)}
-          className="selected"
+          className={currentImage === 1 ? 'selected' : undefined}
         >
           <img src={thumbnail1} alt="Thumbnail 1" />
           <div className="overlay" />
@@ -99,6 +74,7 @@ function ProductImages() {
           ref={imageButton2}
           type="button"
           onClick={(e) => changeImage(2, e, references)}
+          className={currentImage === 2 ? 'selected' : undefined}
         >
           <img src={thumbnail2} alt="Thumbnail 2" />
           <div className="overlay" />
@@ -107,6 +83,7 @@ function ProductImages() {
           ref={imageButton3}
           type="button"
           onClick={(e) => changeImage(3, e, references)}
+          className={currentImage === 3 ? 'selected' : undefined}
         >
           <img src={thumbnail3} alt="Thumbnail 3" />
           <div className="overlay" />
@@ -115,6 +92,7 @@ function ProductImages() {
           ref={imageButton4}
           type="button"
           onClick={(e) => changeImage(4, e, references)}
+          className={currentImage === 4 ? 'selected' : undefined}
         >
           <img src={thumbnail4} alt="Thumbnail 4" />
           <div className="overlay" />
