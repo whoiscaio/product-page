@@ -1,8 +1,19 @@
-import { ProductInfoContainer } from './styles';
+import { useState } from 'react';
 
+import { ProductInfoContainer } from './styles';
 import whiteCartIcon from '../../assets/images/icon-white-cart.png';
 
 function ProductInfo() {
+  const [quantity, setQuantity] = useState(0);
+
+  function plusQuantity() {
+    setQuantity((prevState) => prevState + 1);
+  }
+
+  function minusQuantity() {
+    setQuantity((prevState) => prevState === 0 ? 0 : prevState - 1);
+  }
+
   return (
     <ProductInfoContainer>
       <header>
@@ -29,9 +40,9 @@ function ProductInfo() {
       </section>
       <section className="actions">
         <div className="set-quantity">
-          <button type="button">-</button>
-          <span>0</span>
-          <button type="button">+</button>
+          <button onClick={minusQuantity} type="button">-</button>
+          <span>{quantity}</span>
+          <button onClick={plusQuantity} type="button">+</button>
         </div>
         <div className="add-to-cart">
           <button type="button"><img src={whiteCartIcon} alt="Cart Icon" /><span>Add to cart</span></button>
