@@ -1,18 +1,10 @@
-import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import { ProductInfoContainer } from './styles';
 import whiteCartIcon from '../../assets/images/icon-white-cart.png';
 
-function ProductInfo() {
-  const [quantity, setQuantity] = useState(0);
-
-  function plusQuantity() {
-    setQuantity((prevState) => prevState + 1);
-  }
-
-  function minusQuantity() {
-    setQuantity((prevState) => prevState === 0 ? 0 : prevState - 1);
-  }
+function ProductInfo(props) {
+  const { add, qtd, plus, minus } = props;
 
   return (
     <ProductInfoContainer>
@@ -40,16 +32,23 @@ function ProductInfo() {
       </section>
       <section className="actions">
         <div className="set-quantity">
-          <button onClick={minusQuantity} type="button">-</button>
-          <span>{quantity}</span>
-          <button onClick={plusQuantity} type="button">+</button>
+          <button onClick={minus} type="button">-</button>
+          <span>{qtd}</span>
+          <button onClick={plus} type="button">+</button>
         </div>
         <div className="add-to-cart">
-          <button type="button"><img src={whiteCartIcon} alt="Cart Icon" /><span>Add to cart</span></button>
+          <button onClick={add} type="button"><img src={whiteCartIcon} alt="Cart Icon" /><span>Add to cart</span></button>
         </div>
       </section>
     </ProductInfoContainer>
   );
+}
+
+ProductInfo.propTypes = {
+  add: PropTypes.func.isRequired,
+  qtd: PropTypes.number.isRequired,
+  plus: PropTypes.func.isRequired,
+  minus: PropTypes.func.isRequired,
 }
 
 export default ProductInfo;
