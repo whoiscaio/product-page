@@ -1,10 +1,14 @@
+import { useContext } from 'react';
 import PropTypes from 'prop-types';
 
 import { CartItemContainer } from './styles';
 import DeleteButtonIcon from '../../assets/images/icon-delete.svg';
+import { CartContext } from '../../contexts/CartContext';
 
 function CartItem(props) {
-  const { image, title, price, quantity } = props.item;
+  const { removeCartItem } = useContext(CartContext);
+
+  const { image, title, price, quantity, id } = props.item;
 
   return (
     <CartItemContainer>
@@ -18,7 +22,7 @@ function CartItem(props) {
         </span>
       </div>
       <div className="delete-button">
-        <button type="button">
+        <button type="button" onClick={() => removeCartItem(id)}>
           <img src={DeleteButtonIcon} alt="Delete Button Icon" />
         </button>
       </div>
@@ -32,6 +36,7 @@ CartItem.propTypes = {
     title: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     quantity: PropTypes.number.isRequired,
+    id: PropTypes.string.isRequired,
   }).isRequired,
 };
 

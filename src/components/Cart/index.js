@@ -9,8 +9,6 @@ function Cart() {
 
   if (!isCartOpen) return null;
 
-  console.log(cartItems);
-
   return (
     <Container ref={CartRef}>
       <header>

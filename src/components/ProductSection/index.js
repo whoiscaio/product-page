@@ -1,4 +1,5 @@
 import { useContext, useState } from 'react';
+import { v4 as uuid } from 'uuid';
 
 import { CartContext } from '../../contexts/CartContext';
 import ProductImages from './ProductImages';
@@ -25,6 +26,7 @@ function ProductSection() {
       title: 'Fall Limited Edition Sneakers',
       price: 125,
       quantity,
+      id: uuid(),
     })
   }
 
