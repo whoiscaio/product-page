@@ -137,7 +137,7 @@ export const ProductInfoContainer = styled.div`
       .set-quantity {
         width: 100%;
         margin-bottom: 1rem;
-        
+
         button {
           height: 6rem;
           flex: 1;
@@ -194,12 +194,18 @@ export const ProductImagesContainer = styled.div`
   max-width: 580px;
   padding: 0 8rem;
 
+  button {
+    cursor: pointer;
+  }
+
   img {
     width: 100%;
     border-radius: 1.6rem;
   }
 
   .main-image {
+    background: 0;
+    border: 0;
     margin-bottom: 2rem;
 
     @media (max-width: 520px) {
@@ -215,8 +221,6 @@ export const ProductImagesContainer = styled.div`
       width: 20%;
       background: none;
       border: 0;
-
-      cursor: pointer;
 
       &:hover {
         opacity: 0.7;
@@ -258,7 +262,7 @@ export const ProductImagesContainer = styled.div`
     .slider {
       display: flex;
       width: 400%;
-      transition: transform .3s ease-out;
+      transition: transform 0.3s ease-out;
 
       .image {
         width: 100%;
@@ -345,13 +349,13 @@ export const ProductImagesContainer = styled.div`
         align-items: center;
         justify-content: center;
 
-        transition: transform .2s ease-out;
+        transition: transform 0.2s ease-out;
 
         img {
           width: 4rem;
           height: 5rem;
 
-          transition: transform .2s ease-out;
+          transition: transform 0.2s ease-out;
         }
       }
     }
@@ -361,6 +365,148 @@ export const ProductImagesContainer = styled.div`
     max-width: initial;
     padding: 0;
   }
+`;
+ 
+export const LightboxGalleryContainer = styled.div`
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 30vw;
+
+  button {
+    background: none;
+    border: 0;
+    cursor: pointer;
+  }
+
+  .close {
+    position: absolute;
+    top: -5rem;
+    right: 0;
+    
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: hsl(26, 100%, 55%);
+  }
+
+  .main-image {
+    position: relative;
+    width: 100%;
+    margin-bottom: 2rem;
+
+    .actions {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      display: flex;
+
+      button {
+        display: flex;
+        align-items: center;
+
+        &:first-child {
+          width: 20%;
+          justify-content: flex-start;
+
+          .wrapper {
+            transform: translateX(-25%);
+          }
+        }
+
+        &:last-child {
+          width: 80%;
+          justify-content: flex-end;
+
+          .wrapper {
+            transform: translateX(25%);
+          }
+        }
+      }
+
+      .wrapper {
+        width: 8rem;
+        height: 8rem;
+        border-radius: 50%;
+        background: #fff;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      img {
+        width: 4rem;
+        height: 5rem;
+      }
+    }
+  }
+
+  .thumbnails {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+
+    button {
+      width: 25%;
+      margin: 0 1rem;
+    }
+
+    .selected {
+      position: relative;
+
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.5);
+        border: 2px solid hsl(26, 100%, 55%);
+        border-radius: 1.6rem;
+
+        z-index: 1000;
+      }
+    }
+  }
+
+  img {
+    width: 100%;
+    border-radius: 1.6rem;
+  }
+
+  @media (max-width: 1300px) {
+    width: 40vw;
+  }
+
+  @media (max-width: 950px) {
+    width: 50vw;
+  }
+
+  @media (max-width: 750px) {
+    width: 60vw;
+  }
+`;
+
+export const LightboxGalleryOverlay = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+
+  z-index: 1000;
 `;
 
 export default styled.div`
