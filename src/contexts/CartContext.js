@@ -7,11 +7,12 @@ function CartProvider({ children }) {
   const CartRef = useRef();
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isCartEmpty, setIsCartEmpty] = useState(false);
+  const [cartItems, setCartItems] = useState([]);
 
   function toggleIsCartOpen() {
     const { current: CartElement } = CartRef;
 
-    if(isCartOpen) {
+    if (isCartOpen) {
       CartElement.classList.add('going-out');
       setTimeout(() => {
         CartElement.classList.remove('going-out');
@@ -22,6 +23,14 @@ function CartProvider({ children }) {
     setIsCartOpen(true);
   }
 
+  function addCartItem(item) {
+    setCartItems((prevState) => [...prevState, item]);
+  }
+
+  function removeCartItem(itemId) {
+    setCartItems((prevState) => prevState.filter((item) => item.id !== itemId));
+  }
+
   return (
     <CartContext.Provider
       value={{
@@ -30,6 +39,9 @@ function CartProvider({ children }) {
         isCartOpen,
         toggleIsCartOpen,
         CartRef,
+        cartItems,
+        addCartItem,
+        removeCartItem,
       }}
     >
       {children}
