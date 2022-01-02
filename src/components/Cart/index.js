@@ -5,7 +5,7 @@ import { CartContext } from '../../contexts/CartContext';
 import CartItem from './CartItem';
 
 function Cart() {
-  const { isCartEmpty, isCartOpen, CartRef } = useContext(CartContext);
+  const { isCartOpen, CartRef, cartItems } = useContext(CartContext);
 
   if(!isCartOpen) return null;
 
@@ -15,11 +15,11 @@ function Cart() {
         <h1>Cart</h1>
       </header>
       <div className="content">
-        {isCartEmpty ? (
+        {cartItems.length === 0 ? (
           <span id="empty">Your cart is empty</span>
         ) : (
           <>
-            <CartItem />
+            { cartItems.map((item) => <CartItem item={item} />) }
             <div className="checkout-button">
               <button type="button">Checkout</button>
             </div>

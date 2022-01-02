@@ -1,17 +1,20 @@
+import PropTypes from 'prop-types';
+
 import { CartItemContainer } from './styles';
-import CartItemThumbnail from '../../assets/images/image-product-1-thumbnail.jpg';
 import DeleteButtonIcon from '../../assets/images/icon-delete.svg';
 
-function CartItem() {
+function CartItem(item) {
+  const { image, title, price, quantity } = item;
+
   return (
     <CartItemContainer>
       <div className="item-icon">
-        <img src={CartItemThumbnail} alt="Item Icon" />
+        <img src={image} alt="Item Icon" />
       </div>
       <div className="item-info">
-        <span>Fall Limited Edition Sneakers</span>
+        <span>{title}</span>
         <span>
-          $125.00 x 3 <strong>$375.00</strong>
+          ${price} x {quantity} <strong>${price * quantity}</strong>
         </span>
       </div>
       <div className="delete-button">
@@ -21,6 +24,15 @@ function CartItem() {
       </div>
     </CartItemContainer>
   );
+}
+
+CartItem.propTypes = {
+  item: PropTypes.shape({
+    image: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    quantity: PropTypes.number.isRequired,
+  }).isRequired,
 }
 
 export default CartItem;
