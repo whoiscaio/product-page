@@ -9,7 +9,7 @@ import Container from './styles';
 import thumbnail1 from '../../assets/images/image-product-1-thumbnail.jpg';
 
 function ProductSection() {
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
   const { addCartItem } = useContext(CartContext);
 
   function plusQuantity() {
@@ -17,7 +17,7 @@ function ProductSection() {
   }
 
   function minusQuantity() {
-    setQuantity((prevState) => prevState === 0 ? 0 : prevState - 1);
+    setQuantity((prevState) => prevState === 1 ? 1 : prevState - 1);
   }
 
   function addToCart() {

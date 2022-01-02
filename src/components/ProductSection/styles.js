@@ -63,6 +63,7 @@ export const ProductInfoContainer = styled.div`
     .set-quantity {
       display: flex;
       align-items: center;
+      width: 15rem;
 
       background: hsl(223, 64%, 98%);
       border-radius: 1rem;
@@ -89,6 +90,8 @@ export const ProductInfoContainer = styled.div`
         font-size: 1.6rem;
         font-weight: 700;
         padding: 0.8rem 1.6rem;
+        flex: 1;
+        text-align: center;
       }
     }
 
@@ -128,10 +131,11 @@ export const ProductInfoContainer = styled.div`
       }
     }
 
-    @media (max-width: 780px) {
+    @media (max-width: 820px) and (min-width: 520px) {
       flex-direction: column;
 
       .set-quantity {
+        width: 100%;
         margin-bottom: 1rem;
         
         button {
