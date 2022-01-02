@@ -7,7 +7,9 @@ import CartItem from './CartItem';
 function Cart() {
   const { isCartOpen, CartRef, cartItems } = useContext(CartContext);
 
-  if(!isCartOpen) return null;
+  if (!isCartOpen) return null;
+
+  console.log(cartItems);
 
   return (
     <Container ref={CartRef}>
@@ -19,7 +21,9 @@ function Cart() {
           <span id="empty">Your cart is empty</span>
         ) : (
           <>
-            { cartItems.map((item) => <CartItem item={item} />) }
+            {cartItems.map((item) => (
+              <CartItem item={item} />
+            ))}
             <div className="checkout-button">
               <button type="button">Checkout</button>
             </div>

@@ -6,7 +6,6 @@ export const CartContext = createContext();
 function CartProvider({ children }) {
   const CartRef = useRef();
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const [isCartEmpty, setIsCartEmpty] = useState(false);
   const [cartItems, setCartItems] = useState([]);
 
   function toggleIsCartOpen() {
@@ -34,8 +33,6 @@ function CartProvider({ children }) {
   return (
     <CartContext.Provider
       value={{
-        isCartEmpty,
-        setIsCartEmpty,
         isCartOpen,
         toggleIsCartOpen,
         CartRef,

@@ -18,6 +18,7 @@ module.exports = {
     'jsx-a11y/anchor-is-valid': 0,
     'react/jsx-no-bind': 0,
     'react/jsx-no-constructed-context-values': 0,
+    'react/destructuring-assignment': 0,
     'consistent-return': 0,
   },
 };
