@@ -160,6 +160,17 @@ export const ProductInfoContainer = styled.div`
     }
   }
 
+  @media (max-width: 520px) {
+    padding: 4rem;
+
+    .price {
+      .old-price {
+        float: right;
+        transform: translateY(25%);
+      }
+    }
+  }
+
   @media (max-width: 680px) {
     header {
       margin-bottom: 2rem;
