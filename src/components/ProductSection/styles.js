@@ -132,6 +132,8 @@ export const ProductInfoContainer = styled.div`
       flex-direction: column;
 
       .set-quantity {
+        margin-bottom: 1rem;
+        
         button {
           height: 6rem;
           flex: 1;
