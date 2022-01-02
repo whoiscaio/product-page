@@ -207,8 +207,10 @@ export const ProductImagesContainer = styled.div`
     display: flex;
     justify-content: space-between;
 
-    div {
+    button {
       width: 20%;
+      background: none;
+      border: 0;
 
       cursor: pointer;
 

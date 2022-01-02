@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 import { ProductImagesContainer } from './styles';
 
@@ -17,6 +17,12 @@ import thumbnail4 from '../../assets/images/image-product-4-thumbnail.jpg';
 
 function ProductImages() {
   const [currentImage, setCurrentImage] = useState(1);
+  const products = [product1, product2, product3, product4];
+
+  const imageButton1 = useRef();
+  const imageButton2 = useRef();
+  const imageButton3 = useRef();
+  const imageButton4 = useRef();
 
   function goToNextImage() {
     setCurrentImage((prevState) => prevState !== 4 ? prevState + 1 : 1);
@@ -26,28 +32,46 @@ function ProductImages() {
     setCurrentImage((prevState) => prevState !== 1 ? prevState - 1 : 4);
   }
 
+  function clearClasses() {
+    imageButton1.current.classList.remove('selected');
+    imageButton2.current.classList.remove('selected');
+    imageButton3.current.classList.remove('selected');
+    imageButton4.current.classList.remove('selected');
+  }
+
+  function changeImage(imgId, e) {
+    if(currentImage === imgId) return;
+
+    const { target } = e;
+    const button = target.parentNode;
+
+    clearClasses();
+    button.classList.add('selected');
+    setCurrentImage(imgId);
+  }
+
   return (
     <ProductImagesContainer>
       <div className="main-image">
-        <img src={product1} alt="Selected" />
+        <img src={products[currentImage - 1]} alt="Selected" />
       </div>
       <div className="thumbnails">
-        <div className="selected">
+        <button ref={imageButton1} type="button" onClick={(e) => changeImage(1, e)} className="selected">
           <img src={thumbnail1} alt="Thumbnail 1" />
           <div className="overlay" />
-        </div>
-        <div>
+        </button>
+        <button ref={imageButton2} type="button" onClick={(e) => changeImage(2, e)}>
           <img src={thumbnail2} alt="Thumbnail 2" />
           <div className="overlay" />
-        </div>
-        <div>
+        </button>
+        <button ref={imageButton3} type="button" onClick={(e) => changeImage(3, e)}>
           <img src={thumbnail3} alt="Thumbnail 3" />
           <div className="overlay" />
-        </div>
-        <div>
+        </button>
+        <button ref={imageButton4} type="button" onClick={(e) => changeImage(4, e)}>
           <img src={thumbnail4} alt="Thumbnail 4" />
           <div className="overlay" />
-        </div>
+        </button>
       </div>
       <div className="mobile-slider">
         <div className={`slider p${currentImage}`}>
