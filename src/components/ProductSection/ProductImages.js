@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import { ProductImagesContainer } from './styles';
 
 import previousImageButton from '../../assets/images/icon-previous.svg';
@@ -14,6 +16,16 @@ import thumbnail3 from '../../assets/images/image-product-3-thumbnail.jpg';
 import thumbnail4 from '../../assets/images/image-product-4-thumbnail.jpg';
 
 function ProductImages() {
+  const [currentImage, setCurrentImage] = useState(2);
+
+  function goToNextImage() {
+    setCurrentImage((prevState) => prevState + 1);
+  }
+
+  function goToPreviousImage() {
+    setCurrentImage((prevState) => prevState - 1);
+  }
+
   return (
     <ProductImagesContainer>
       <div className="main-image">
@@ -38,7 +50,7 @@ function ProductImages() {
         </div>
       </div>
       <div className="mobile-slider">
-        <div className="slider p3">
+        <div className={`slider p${currentImage}`}>
           <div className="image">
             <img src={product1} alt="Product 1" />
           </div>
@@ -53,12 +65,22 @@ function ProductImages() {
           </div>
         </div>
         <div className="actions">
-          <button type="button" className="previousImage">
+          <button
+            type="button"
+            onClick={goToPreviousImage}
+            className="previousImage"
+            disabled={currentImage === 1}
+          >
             <div className="wrapper">
               <img src={previousImageButton} alt="Previous" />
             </div>
           </button>
-          <button type="button" className="nextImage">
+          <button
+            type="button"
+            onClick={goToNextImage}
+            className="nextImage"
+            disabled={currentImage === 4}
+          >
             <div className="wrapper">
               <img src={nextImageButton} alt="Next" />
             </div>
