@@ -9,6 +9,10 @@ export const CartContainer = styled.div`
     border: 0;
     cursor: pointer;
   }
+
+  @media (max-width: 520px) {
+    position: initial;
+  }
 `;
 
 export const NavigationBar = styled.nav`

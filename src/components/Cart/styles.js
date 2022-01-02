@@ -58,6 +58,10 @@ export const CartItemContainer = styled.div`
       &:first-of-type {
         margin-bottom: 0.6rem;
       }
+
+      @media (max-width: 520px) {
+        font-size: 1.6rem;
+      }
     }
 
     strong {
@@ -79,7 +83,14 @@ export default styled.div`
 
   animation: ${slideIn} .38s ease-out;
 
-  z-index: 1000;
+  z-index: 1001;
+
+  @media (max-width: 520px) {
+    width: 80vw;
+    top: 8rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 
   &.going-out {
     animation: ${slideOut} .38s ease-out;
