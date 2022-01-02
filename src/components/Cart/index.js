@@ -2,7 +2,7 @@ import { useContext } from 'react';
 
 import Container from './styles';
 import { CartContext } from '../../contexts/CartContext';
-import CartItem from '../PageHeader/CartItem';
+import CartItem from './CartItem';
 
 function Cart() {
   const { isCartEmpty, isCartOpen, CartRef } = useContext(CartContext);

@@ -24,8 +24,50 @@ const slideOut = keyframes`
   }
 `;
 
+export const CartItemContainer = styled.div`
+  display: flex;
+  align-items: center;
+
+  button {
+    background: none;
+    border: 0;
+  }
+
+  .item-icon {
+    width: 5rem;
+
+    img {
+      width: 100%;
+      border-radius: 0.6rem;
+    }
+  }
+
+  .item-info {
+    height: 100%;
+    margin: 0 2rem;
+
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    span {
+      font-size: 1.4rem;
+      white-space: nowrap;
+
+      &:first-of-type {
+        margin-bottom: 0.6rem;
+      }
+    }
+
+    strong {
+      color: #000;
+    }
+  }
+`;
+
 export default styled.div`
-  width: 320px;
+  width: 380px;
 
   position: absolute;
   top: 4.6rem;
@@ -36,6 +78,8 @@ export default styled.div`
   box-shadow: 0px 11px 16px 4px rgba(108, 108, 108, 0.39);
 
   animation: ${slideIn} .38s ease-out;
+
+  z-index: 1000;
 
   &.going-out {
     animation: ${slideOut} .38s ease-out;

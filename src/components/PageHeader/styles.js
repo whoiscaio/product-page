@@ -1,47 +1,5 @@
 import styled from 'styled-components';
 
-export const CartItemContainer = styled.div`
-  display: flex;
-  align-items: center;
-
-  button {
-    background: none;
-    border: 0;
-  }
-
-  .item-icon {
-    width: 5rem;
-
-    img {
-      width: 100%;
-      border-radius: 0.6rem;
-    }
-  }
-
-  .item-info {
-    height: 100%;
-    margin: 0 2rem;
-
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    span {
-      font-size: 1.3rem;
-      white-space: nowrap;
-
-      &:first-of-type {
-        margin-bottom: 0.6rem;
-      }
-    }
-
-    strong {
-      color: #000;
-    }
-  }
-`;
-
 export const CartContainer = styled.div`
   position: relative;
   margin-right: 4rem;
