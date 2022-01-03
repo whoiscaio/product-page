@@ -39,6 +39,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Github](https://github.com/whoiscaio/product-page)
+- Live Site URL: [Github Pages](http://whoiscaio.github.io/product-page)
 
 ## My process
 
