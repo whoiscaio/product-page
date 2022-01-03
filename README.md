@@ -54,8 +54,13 @@ Users should be able to:
 
 ### What I learned
 
+
 This project was very useful for me, specially because i learned how to create sliders and implement them on mobile.
 It was also helpful to reinforce my knowledge on responsive design, react portals and context  api.
+
+### Useful resources
+
+- [React GH Pages Tutorial](https://github.com/gitname/react-gh-pages) - This was an amazing resource that helped me to host my react application on github pages. Since github use a different approach to host their pages, a create-react-app can't be hosted natively on github pages, so i had to use the gh-pages library to help me deploy an app on a different branch that is ready to be published.
 
 ## Author
 
