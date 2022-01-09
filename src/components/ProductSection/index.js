@@ -28,6 +28,8 @@ function ProductSection() {
       quantity,
       id: uuid(),
     })
+
+    setQuantity(1);
   }
 
   return (
