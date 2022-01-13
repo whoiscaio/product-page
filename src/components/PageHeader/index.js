@@ -13,7 +13,7 @@ import { CartContext } from '../../contexts/CartContext';
 
 function PageHeader() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { toggleIsCartOpen, cartItems } = useContext(CartContext);
+  const { openCart, cartItems } = useContext(CartContext);
 
   const cartQuantity = cartItems.length;
 
@@ -51,7 +51,10 @@ function PageHeader() {
 
       <UserSection>
         <CartContainer>
-          <button type="button" onClick={toggleIsCartOpen}>
+          <button type="button" onClick={(e) => {
+            e.stopPropagation();
+            openCart();
+          }}>
             <img src={CartIcon} alt="Cart Icon" />
           </button>
           {cartQuantity > 0 && <span id="cart-quantity">{cartItems.length}</span>}

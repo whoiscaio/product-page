@@ -92,6 +92,10 @@ export const CartItemContainer = styled.div`
       color: #000;
     }
   }
+
+  .delete-button {
+    pointer-events: initial;
+  }
 `;
 
 export default styled.div`
@@ -108,6 +112,10 @@ export default styled.div`
   animation: ${slideIn} 0.38s ease-out;
 
   z-index: 1001;
+
+  div, header {
+    pointer-events: none;
+  }
 
   &.going-out {
     animation: ${slideOut} 0.38s ease-out;

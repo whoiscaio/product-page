@@ -8,18 +8,22 @@ function CartProvider({ children }) {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
 
-  function toggleIsCartOpen() {
+  function openCart() {
+    setIsCartOpen(true);
+  }
+
+  function closeCart() {
     const { current: CartElement } = CartRef;
 
-    if (isCartOpen) {
+    setIsCartOpen((prevState) => {
+      if (!prevState) return prevState;
+
       CartElement.classList.add('going-out');
       setTimeout(() => {
         CartElement.classList.remove('going-out');
-        setIsCartOpen(false);
-      }, 370);
-    }
-
-    setIsCartOpen(true);
+        return false;
+      }, 3700);
+    })
   }
 
   function addCartItem(item) {
@@ -34,7 +38,8 @@ function CartProvider({ children }) {
     <CartContext.Provider
       value={{
         isCartOpen,
-        toggleIsCartOpen,
+        openCart,
+        closeCart,
         CartRef,
         cartItems,
         addCartItem,

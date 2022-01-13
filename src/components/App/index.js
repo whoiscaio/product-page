@@ -1,16 +1,24 @@
-import CartProvider from '../../contexts/CartContext';
+import { useContext, useEffect } from 'react';
+
+import { CartContext } from '../../contexts/CartContext';
 import PageHeader from '../PageHeader';
 import ProductSection from '../ProductSection';
 import GlobalStyle from './GlobalStyle';
 
 function App() {
+  const { CartRef, closeCart } = useContext(CartContext);
+
+  useEffect(() => {
+    window.addEventListener('click', (e) => {
+      if(e.target !== CartRef.current) closeCart();
+    });
+  }, []);
+
   return (
     <div className="App">
       <GlobalStyle />
-      <CartProvider>
-        <PageHeader />
-        <ProductSection />
-      </CartProvider>
+      <PageHeader />
+      <ProductSection />
     </div>
   );
 }
