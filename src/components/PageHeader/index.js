@@ -13,7 +13,9 @@ import { CartContext } from '../../contexts/CartContext';
 
 function PageHeader() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { toggleIsCartOpen } = useContext(CartContext);
+  const { toggleIsCartOpen, cartItems } = useContext(CartContext);
+
+  const cartQuantity = cartItems.length;
 
   function toggleMobileMenu() {
     setIsMobileMenuOpen((prevState) => !prevState);
@@ -52,6 +54,7 @@ function PageHeader() {
           <button type="button" onClick={toggleIsCartOpen}>
             <img src={CartIcon} alt="Cart Icon" />
           </button>
+          {cartQuantity > 0 && <span id="cart-quantity">{cartItems.length}</span>}
           <Cart />
         </CartContainer>
 

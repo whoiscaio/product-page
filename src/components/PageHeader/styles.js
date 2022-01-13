@@ -10,6 +10,26 @@ export const CartContainer = styled.div`
     cursor: pointer;
   }
 
+  #cart-quantity {
+    background: hsl(26, 100%, 55%);
+    border-radius: 50%;
+    color: #fff;
+    font-size: 1.2rem;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 1.6rem;
+    height: 1.6rem;
+
+    transform: translate(50%, -50%);
+  }
+
   @media (max-width: 520px) {
     position: initial;
   }
