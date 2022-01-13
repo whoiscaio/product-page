@@ -30,6 +30,8 @@ export const ProductInfoContainer = styled.div`
     margin: 2rem 0;
 
     .main-price {
+      position: relative;
+
       font-weight: 700;
       font-size: 2.8rem;
     }
@@ -44,7 +46,7 @@ export const ProductInfoContainer = styled.div`
     .discount {
       position: absolute;
       top: 0.4rem;
-      left: 11rem;
+      right: -5rem;
 
       padding: 0.4rem;
 

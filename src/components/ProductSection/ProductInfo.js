@@ -22,10 +22,10 @@ function ProductInfo(props) {
       <section className="price">
         <span className="main-price">
           <span>${125 * qtd}.00</span>
+          <div className="discount">
+            <span>50%</span>
+          </div>
         </span>
-        <div className="discount">
-          <span>50%</span>
-        </div>
         <div className="old-price">
           <span>${250 * qtd}.00</span>
         </div>
