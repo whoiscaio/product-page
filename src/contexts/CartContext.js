@@ -13,17 +13,14 @@ function CartProvider({ children }) {
   }
 
   function closeCart() {
+
     const { current: CartElement } = CartRef;
 
-    setIsCartOpen((prevState) => {
-      if (!prevState) return prevState;
-
-      CartElement.classList.add('going-out');
-      setTimeout(() => {
-        CartElement.classList.remove('going-out');
-        return false;
-      }, 3700);
-    })
+    CartElement.classList.add('going-out');
+    setTimeout(() => {
+      CartElement.classList.remove('going-out');
+      setIsCartOpen(false);
+    }, 370);
   }
 
   function addCartItem(item) {

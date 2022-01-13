@@ -10,7 +10,7 @@ function App() {
 
   useEffect(() => {
     window.addEventListener('click', (e) => {
-      if(e.target !== CartRef.current) closeCart();
+      if(e.target !== CartRef.current && CartRef.current) closeCart();
     });
   }, []);
 

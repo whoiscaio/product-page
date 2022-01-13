@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 
 import Container from './styles';
 import { CartContext } from '../../contexts/CartContext';
@@ -6,6 +6,12 @@ import CartItem from './CartItem';
 
 function Cart() {
   const { isCartOpen, CartRef, cartItems } = useContext(CartContext);
+
+  useEffect(() => () => {
+    setTimeout(() => {
+      console.log('unmounted');
+    }, 3000);
+  }, []);
 
   if (!isCartOpen) return null;
 
