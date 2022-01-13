@@ -22,7 +22,10 @@ function CartItem(props) {
         </span>
       </div>
       <div className="delete-button">
-        <button type="button" onClick={() => removeCartItem(id)}>
+        <button type="button" onClick={(e) => {
+          e.stopPropagation();
+          removeCartItem(id)
+        }}>
           <img src={DeleteButtonIcon} alt="Delete Button Icon" />
         </button>
       </div>
