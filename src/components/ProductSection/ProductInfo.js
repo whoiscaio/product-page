@@ -21,13 +21,13 @@ function ProductInfo(props) {
       </section>
       <section className="price">
         <span className="main-price">
-          <span>$125.00</span>
+          <span>${125 * qtd}.00</span>
         </span>
         <div className="discount">
           <span>50%</span>
         </div>
         <div className="old-price">
-          <span>$250.00</span>
+          <span>${250 * qtd}.00</span>
         </div>
       </section>
       <section className="actions">
