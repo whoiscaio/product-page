@@ -2,6 +2,10 @@ const openCart = () => ({
   type: 'open_cart',
 });
 
+const closeCartAnimate = () => ({
+  type: 'close_cart_animate',
+});
+
 const closeCart = () => ({
   type: 'close_cart',
 });
@@ -16,4 +20,4 @@ const removeItem = (itemId) => ({
   itemId,
 })
 
-export { openCart, closeCart, addItem, removeItem };
+export { openCart, closeCartAnimate, closeCart, addItem, removeItem };

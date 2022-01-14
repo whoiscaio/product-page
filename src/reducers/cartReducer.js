@@ -1,5 +1,6 @@
 const initialValues = {
   isCartOpen: false,
+  isCartClosing: false,
   cartItems: [],
 }
 
@@ -11,10 +12,17 @@ function CartReducer(state = initialValues, action) {
         isCartOpen: true,
       }
 
+    case 'close_cart_animate':
+      return {
+        ...state,
+        isCartClosing: true,
+      }
+
     case 'close_cart':
       return {
         ...state,
-        isCartOpen: false
+        isCartClosing: false,
+        isCartOpen: false,
       }
 
     case 'add_item':

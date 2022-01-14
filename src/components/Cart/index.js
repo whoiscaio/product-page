@@ -1,15 +1,20 @@
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import Container from './styles';
 import CartItem from './CartItem';
 
 function Cart() {
-  const { isCartOpen, cartItems } = useSelector((state) => state);
+  const { isCartOpen, isCartClosing, cartItems } = useSelector((state) => state);
+
+  useEffect(() => {
+    console.log(isCartClosing);
+  }, [isCartClosing]);
 
   if (!isCartOpen) return null;
 
   return (
-    <Container>
+    <Container className={isCartClosing ? 'going-out' : undefined}>
       <header>
         <h1>Cart</h1>
       </header>
