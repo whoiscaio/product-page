@@ -6,13 +6,17 @@ import ProductSection from '../ProductSection';
 import GlobalStyle from './GlobalStyle';
 
 function App() {
-  const { CartRef, closeCart } = useContext(CartContext);
+  const { isCartOpen, closeCart } = useContext(CartContext);
+
+  function handleCloseCart(e) {
+    if(e.target !== isCartOpen && isCartOpen) closeCart();
+  }
 
   useEffect(() => {
-    window.addEventListener('click', (e) => {
-      if(e.target !== CartRef.current && CartRef.current) closeCart();
-    });
-  }, []);
+    window.addEventListener('click', handleCloseCart);
+
+    return () => window.removeEventListener('click', handleCloseCart);
+  }, [isCartOpen]);
 
   return (
     <div className="App">
