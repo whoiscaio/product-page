@@ -13,7 +13,7 @@ import MobileMenu from '../MobileMenu';
 import Cart from '../Cart';
 import { openCart } from '../../actions/cartActions';
 
-function PageHeader({cartRef}) {
+function PageHeader({ cartRef }) {
   const dispatch = useDispatch();
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -73,7 +73,7 @@ function PageHeader({cartRef}) {
 }
 
 PageHeader.propTypes = {
-  cartRef: propTypes.shape.isRequired,
+  cartRef: propTypes.shape().isRequired,
 }
 
 export default PageHeader;

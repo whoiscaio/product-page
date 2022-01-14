@@ -33,7 +33,7 @@ function Cart({cartRef}) {
 }
 
 Cart.propTypes = {
-  cartRef: propTypes.shape.isRequired,
+  cartRef: propTypes.shape().isRequired,
 };
 
 export default Cart;
