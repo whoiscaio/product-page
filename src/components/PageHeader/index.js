@@ -55,10 +55,7 @@ function PageHeader({cartRef}) {
 
       <UserSection>
         <CartContainer>
-          <button type="button" onClick={(e) => {
-            e.stopPropagation();
-            dispatch(openCart());
-          }}>
+          <button type="button" onClick={() => dispatch(openCart())}>
             <img src={CartIcon} alt="Cart Icon" />
           </button>
           {cartQuantity > 0 && <span id="cart-quantity">{cartItems.length}</span>}
