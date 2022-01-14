@@ -1,15 +1,16 @@
 import { useSelector } from 'react-redux';
+import propTypes from 'prop-types';
 
 import Container from './styles';
 import CartItem from './CartItem';
 
-function Cart() {
+function Cart({cartRef}) {
   const { isCartOpen, isCartClosing, cartItems } = useSelector((state) => state);
 
   if (!isCartOpen) return null;
 
   return (
-    <Container className={isCartClosing ? 'going-out' : undefined}>
+    <Container ref={cartRef} className={isCartClosing ? 'going-out' : undefined}>
       <header>
         <h1>Cart</h1>
       </header>
@@ -30,5 +31,9 @@ function Cart() {
     </Container>
   );
 }
+
+Cart.propTypes = {
+  cartRef: propTypes.shape.isRequired,
+};
 
 export default Cart;

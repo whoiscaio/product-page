@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import propTypes from 'prop-types';
 
 import Container, { NavigationBar, UserSection, CartContainer } from './styles';
 
@@ -12,7 +13,7 @@ import MobileMenu from '../MobileMenu';
 import Cart from '../Cart';
 import { openCart } from '../../actions/cartActions';
 
-function PageHeader() {
+function PageHeader({cartRef}) {
   const dispatch = useDispatch();
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -61,7 +62,7 @@ function PageHeader() {
             <img src={CartIcon} alt="Cart Icon" />
           </button>
           {cartQuantity > 0 && <span id="cart-quantity">{cartItems.length}</span>}
-          <Cart />
+          <Cart cartRef={cartRef}/>
         </CartContainer>
 
         <div className="profile">
@@ -72,6 +73,10 @@ function PageHeader() {
       <MobileMenu isOpen={isMobileMenuOpen} toggleMenu={toggleMobileMenu} />
     </Container>
   );
+}
+
+PageHeader.propTypes = {
+  cartRef: propTypes.shape.isRequired,
 }
 
 export default PageHeader;

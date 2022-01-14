@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { closeCart, closeCartAnimate } from '../../actions/cartActions';
 
@@ -9,10 +9,13 @@ import GlobalStyle from './GlobalStyle';
 function App() {
   const dispatch = useDispatch();
 
+  const cartRef = useRef();
+
   const { isCartOpen } = useSelector((state) => state);
 
   function handleCloseCart(e) {
-    if(e.target !== isCartOpen && isCartOpen) {
+
+    if(e.target !== cartRef.current && isCartOpen) {
       dispatch(closeCartAnimate());
       setTimeout(() => {
         dispatch(closeCart());
@@ -29,7 +32,7 @@ function App() {
   return (
     <div className="App">
       <GlobalStyle />
-      <PageHeader />
+      <PageHeader cartRef={cartRef}/>
       <ProductSection />
     </div>
   );
