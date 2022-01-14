@@ -19,7 +19,7 @@ function Cart() {
         ) : (
           <>
             {cartItems.map((item) => (
-              <CartItem item={item} />
+              <CartItem key={item.id} item={item} />
             ))}
             <div className="checkout-button">
               <button type="button">Checkout</button>
