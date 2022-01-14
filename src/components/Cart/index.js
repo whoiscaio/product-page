@@ -6,9 +6,6 @@ import CartItem from './CartItem';
 function Cart() {
   const { isCartOpen, cartItems } = useSelector((state) => state);
 
-  console.log(isCartOpen);
-  console.log(cartItems);
-
   if (!isCartOpen) return null;
 
   return (
