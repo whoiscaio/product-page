@@ -1,12 +1,12 @@
-import { useContext } from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 
 import { CartItemContainer } from './styles';
 import DeleteButtonIcon from '../../assets/images/icon-delete.svg';
-import { CartContext } from '../../contexts/CartContext';
+import { removeItem } from '../../actions/cartActions';
 
 function CartItem(props) {
-  const { removeCartItem } = useContext(CartContext);
+  const dispatch = useDispatch();
 
   const { image, title, price, quantity, id } = props.item;
 
@@ -24,7 +24,7 @@ function CartItem(props) {
       <div className="delete-button">
         <button type="button" onClick={(e) => {
           e.stopPropagation();
-          removeCartItem(id)
+          dispatch(removeItem(id));
         }}>
           <img src={DeleteButtonIcon} alt="Delete Button Icon" />
         </button>

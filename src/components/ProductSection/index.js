@@ -1,16 +1,17 @@
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { v4 as uuid } from 'uuid';
-
-import { CartContext } from '../../contexts/CartContext';
+import { useDispatch } from 'react-redux';
 import ProductImages from './ProductImages';
 import ProductInfo from './ProductInfo';
 import Container from './styles';
 
 import thumbnail1 from '../../assets/images/image-product-1-thumbnail.jpg';
+import { addItem } from '../../actions/cartActions';
 
 function ProductSection() {
+  const dispatch = useDispatch();
+
   const [quantity, setQuantity] = useState(1);
-  const { addCartItem } = useContext(CartContext);
 
   function plusQuantity() {
     setQuantity((prevState) => prevState + 1);
@@ -21,13 +22,13 @@ function ProductSection() {
   }
 
   function addToCart() {
-    addCartItem({
+    dispatch(addItem({
       image: thumbnail1,
       title: 'Fall Limited Edition Sneakers',
       price: 125,
       quantity,
       id: uuid(),
-    })
+    }));
 
     setQuantity(1);
   }

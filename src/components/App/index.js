@@ -1,15 +1,18 @@
-import { useContext, useEffect } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { closeCart } from '../../actions/cartActions';
 
-import { CartContext } from '../../contexts/CartContext';
 import PageHeader from '../PageHeader';
 import ProductSection from '../ProductSection';
 import GlobalStyle from './GlobalStyle';
 
 function App() {
-  const { isCartOpen, closeCart } = useContext(CartContext);
+  const dispatch = useDispatch();
+
+  const { isCartOpen } = useSelector((state) => state);
 
   function handleCloseCart(e) {
-    if(e.target !== isCartOpen && isCartOpen) closeCart();
+    if(e.target !== isCartOpen && isCartOpen) dispatch(closeCart());
   }
 
   useEffect(() => {

@@ -1,4 +1,5 @@
-import { useContext, useState } from 'react';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Container, { NavigationBar, UserSection, CartContainer } from './styles';
 
@@ -9,11 +10,13 @@ import MenuIcon from '../../assets/images/icon-menu.svg';
 
 import MobileMenu from '../MobileMenu';
 import Cart from '../Cart';
-import { CartContext } from '../../contexts/CartContext';
+import { openCart } from '../../actions/cartActions';
 
 function PageHeader() {
+  const dispatch = useDispatch();
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { openCart, cartItems } = useContext(CartContext);
+  const { cartItems } = useSelector((state) => state);
 
   const cartQuantity = cartItems.length;
 
@@ -53,7 +56,7 @@ function PageHeader() {
         <CartContainer>
           <button type="button" onClick={(e) => {
             e.stopPropagation();
-            openCart();
+            dispatch(openCart());
           }}>
             <img src={CartIcon} alt="Cart Icon" />
           </button>

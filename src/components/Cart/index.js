@@ -1,11 +1,13 @@
-import { useContext } from 'react';
+import { useSelector } from 'react-redux';
 
 import Container from './styles';
-import { CartContext } from '../../contexts/CartContext';
 import CartItem from './CartItem';
 
 function Cart() {
-  const { isCartOpen, cartItems } = useContext(CartContext);
+  const { isCartOpen, cartItems } = useSelector((state) => state);
+
+  console.log(isCartOpen);
+  console.log(cartItems);
 
   if (!isCartOpen) return null;
 
