@@ -1,10 +1,9 @@
 import propTypes from 'prop-types';
-import { createContext, useRef, useState } from 'react';
+import { createContext, useState } from 'react';
 
 export const CartContext = createContext();
 
 function CartProvider({ children }) {
-  const CartRef = useRef();
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
 
@@ -13,14 +12,7 @@ function CartProvider({ children }) {
   }
 
   function closeCart() {
-
-    const { current: CartElement } = CartRef;
-
-    CartElement.classList.add('going-out');
-    setTimeout(() => {
-      CartElement.classList.remove('going-out');
-      setIsCartOpen(false);
-    }, 370);
+    setIsCartOpen(false);
   }
 
   function addCartItem(item) {
@@ -37,7 +29,6 @@ function CartProvider({ children }) {
         isCartOpen,
         openCart,
         closeCart,
-        CartRef,
         cartItems,
         addCartItem,
         removeCartItem,

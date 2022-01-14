@@ -5,12 +5,12 @@ import { CartContext } from '../../contexts/CartContext';
 import CartItem from './CartItem';
 
 function Cart() {
-  const { isCartOpen, CartRef, cartItems } = useContext(CartContext);
+  const { isCartOpen, cartItems } = useContext(CartContext);
 
   if (!isCartOpen) return null;
 
   return (
-    <Container ref={CartRef}>
+    <Container>
       <header>
         <h1>Cart</h1>
       </header>
