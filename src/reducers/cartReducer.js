@@ -3,7 +3,7 @@ const initialValues = {
   cartItems: [],
 }
 
-function cartReducer(state = initialValues, action) {
+function CartReducer(state = initialValues, action) {
   switch (action.type) {
     case 'open_cart':
       return {
@@ -34,4 +34,4 @@ function cartReducer(state = initialValues, action) {
   }
 }
 
-export default cartReducer;
+export default CartReducer;
