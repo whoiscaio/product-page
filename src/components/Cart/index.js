@@ -7,10 +7,6 @@ import CartItem from './CartItem';
 function Cart() {
   const { isCartOpen, isCartClosing, cartItems } = useSelector((state) => state);
 
-  useEffect(() => {
-    console.log(isCartClosing);
-  }, [isCartClosing]);
-
   if (!isCartOpen) return null;
 
   return (
