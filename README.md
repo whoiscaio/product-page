@@ -48,7 +48,8 @@ Users should be able to:
 - HTML5
 - CSS3
 - Flexbox
-- [React](https://reactjs.org/) - JS library
+- [React](https://reactjs.org/) - Javascript library
+- [Redux](https://redux.js.org/) - A predictable state container for Javascript apps
 - [Styled Components](https://styled-components.com/) - For styles
 - [Prop Types](https://www.npmjs.com/package/prop-types) - Runtime type checking for React props
 - [uuid](https://www.npmjs.com/package/uuid) - Generation of RFC4122 UUIDs
