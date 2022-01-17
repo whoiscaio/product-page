@@ -11,13 +11,13 @@ import MenuIcon from '../../assets/images/icon-menu.svg';
 
 import MobileMenu from '../MobileMenu';
 import Cart from '../Cart';
-import { openCart } from '../../actions/cartActions';
+import { openCart } from '../../slice/CartReducer';
 
 function PageHeader({ cartRef }) {
   const dispatch = useDispatch();
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { cartItems } = useSelector((state) => state);
+  const { cartItems } = useSelector((state) => state.cart);
 
   const cartQuantity = cartItems.length;
 

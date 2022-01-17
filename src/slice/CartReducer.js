@@ -21,13 +21,15 @@ const CartSlice = createSlice({
       state.isCartClosing = true;
     },
     addItem: (state, action) => {
+      console.log(action);
+
       state.cartItems = [
         ...state.cartItems,
-        action.item
+        action.payload
       ]
     },
     removeItem: (state, action) => {
-      state.cartItems = state.cartItems.filter((item) => item.id !== action.itemId);
+      state.cartItems = state.cartItems.filter((item) => item.id !== action.payload);
     }
   }
 });

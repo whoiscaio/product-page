@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { closeCart, closeCartAnimate } from '../../actions/cartActions';
+import { closeCart, closeCartAnimate } from '../../slice/CartReducer';
 
 import PageHeader from '../PageHeader';
 import ProductSection from '../ProductSection';
@@ -11,7 +11,7 @@ function App() {
 
   const cartRef = useRef();
 
-  const { isCartOpen } = useSelector((state) => state);
+  const { isCartOpen } = useSelector((state) => state.cart);
 
   function handleCloseCart(e) {
 

@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import { CartItemContainer } from './styles';
 import DeleteButtonIcon from '../../assets/images/icon-delete.svg';
-import { removeItem } from '../../actions/cartActions';
+import { removeItem } from '../../slice/CartReducer';
 
 function CartItem(props) {
   const dispatch = useDispatch();

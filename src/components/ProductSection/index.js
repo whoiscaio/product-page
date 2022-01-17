@@ -6,7 +6,7 @@ import ProductInfo from './ProductInfo';
 import Container from './styles';
 
 import thumbnail1 from '../../assets/images/image-product-1-thumbnail.jpg';
-import { addItem } from '../../actions/cartActions';
+import { addItem } from '../../slice/CartReducer';
 
 function ProductSection() {
   const dispatch = useDispatch();
