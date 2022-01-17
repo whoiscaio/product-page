@@ -21,5 +21,6 @@ module.exports = {
     'react/destructuring-assignment': 0,
     'consistent-return': 0,
     'default-param-last': 0,
+    'no-param-reassign': 0,
   },
 };
