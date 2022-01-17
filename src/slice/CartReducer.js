@@ -21,8 +21,6 @@ const CartSlice = createSlice({
       state.isCartClosing = true;
     },
     addItem: (state, action) => {
-      console.log(action);
-
       state.cartItems = [
         ...state.cartItems,
         action.payload
