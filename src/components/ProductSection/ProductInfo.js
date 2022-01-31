@@ -33,7 +33,7 @@ function ProductInfo(props) {
       <section className="actions">
         <div className="set-quantity">
           <button onClick={minus} type="button">-</button>
-          <span>{qtd}</span>
+          <span role="definition">{qtd}</span>
           <button onClick={plus} type="button">+</button>
         </div>
         <div className="add-to-cart">
