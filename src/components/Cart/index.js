@@ -10,7 +10,7 @@ function Cart({cartRef}) {
   if (!isCartOpen) return null;
 
   return (
-    <Container ref={cartRef} className={isCartClosing ? 'going-out' : undefined}>
+    <Container ref={cartRef} className={isCartClosing ? 'going-out' : undefined} data-testid="cart-container">
       <header>
         <h1>Cart</h1>
       </header>
@@ -32,8 +32,12 @@ function Cart({cartRef}) {
   );
 }
 
+Cart.defaultProps = {
+  cartRef: null,
+}
+
 Cart.propTypes = {
-  cartRef: propTypes.shape().isRequired,
+  cartRef: propTypes.shape(),
 };
 
 export default Cart;
