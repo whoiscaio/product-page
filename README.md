@@ -1,15 +1,19 @@
 
 # Product Page
 
-Uma página de produto de um ecommerce, responsivo e com funcionalidade de carrinho.
-
 ## Índice
 
+- [Sobre](#sobre)
 - [Screenshots](#screenshots)
 - [Links](#links)
 - [Para desenvolvedores](#para-desenvolvedores)
   - [Rodando localmente](#rodando-localmente)
   - [Licença](#licença)
+  
+### Sobre
+
+Uma página de produto de um ecommerce, responsivo e com funcionalidade de carrinho.
+
 ### Screenshots
 
 ![App Screenshot](./.github/desktop-version-screenshot.png)
